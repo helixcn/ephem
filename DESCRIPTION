@@ -1,0 +1,12 @@
+Package: ephem
+Type: Package
+Title: Creating figures for astronomical almanac
+Version: 0.0.1
+Date: 2016-02-14
+Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
+                  email = "jinlongzhang01@gmail.com")
+Author: Jinlong Zhang [aut, cre]
+Maintainer: Jinlong Zhang <jinlongzhang01@gmail.com>
+Description: Creating figures for astronomical almanac.
+Depends: moonsun, skycalc
+License: GPL-2
