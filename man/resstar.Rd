@@ -21,7 +21,7 @@ Yale Bright Star Catalogue
 
 }
 \source{
-
+   \url{http://observe.phy.sfasu.edu/SFAStarCharts/Yale/Yale.zip}
 }
 \references{
 
