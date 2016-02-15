@@ -10,17 +10,27 @@ Track of Mercury during sunset for a period
 }
 
 \usage{
-mercury_sunset(JD, days = 365, lable_interval = 10)
+mercury_sunset(JD, longitude, latitude, days = 365,
+                 label_interval = 10)
 }
 
 \arguments{
   \item{JD}{
-Julian Date
+Julian Date 
 }
+
+  \item{longitude}{
+Longitude in decimal degree
+} 
+
+  \item{latitude}{
+Latitude in decimal degree
+} 
+
   \item{days}{
 Number of days to compute
 }
-  \item{lable_interval}{
+  \item{label_interval}{
 Intervals in day for labels
 }
 }
@@ -34,7 +44,7 @@ Figure
 
 }
 \author{
-Jinlong Zhang
+Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \note{
 
@@ -45,7 +55,9 @@ Jinlong Zhang
 }
 \examples{
 JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-mercury_sunset(JD)
+mercury_sunset(JD, longitude = -127, latitude = 10,  
+      days = 365, label_interval = 20 )
+
 }
 
 \keyword{ mercury }

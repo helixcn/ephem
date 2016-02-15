@@ -1,7 +1,7 @@
 Package: ephem
 Type: Package
 Title: Creating figures for astronomical almanac
-Version: 0.0.2
+Version: 0.0.3
 Date: 2016-02-15
 Authors@R: person("Jinlong", "Zhang", role = c("aut", "cre"),
                   email = "jinlongzhang01@gmail.com")

@@ -13,5 +13,5 @@ function(JD){
     add_planet(JD, cex = c(3.5, 3.5, 1, 2,1.8,3,2.8,2.4, 2.4, 1.2), 
                col = "black", pch = 21, labels = FALSE)
     
-    title(paste("", "SKY ATLAS FOR ", jd2date(JD),"" ))
+    title(paste("", "SKY ATLAS FOR ", jd2date(JD)," (epoch 2000.0)" ))
 }

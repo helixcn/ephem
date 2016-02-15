@@ -1,8 +1,8 @@
 planetRTScalc2 <-
 function(planet = c("mercury", "venus", "mars", 
                  "jupiter", "saturn", "uranus", "neptune", "pluto"), 
-                 JD, longitude, latitude,  zone, 
-                 bGregorianCalendar = TRUE,  type = c("rise", "transit", "set")){
+                 JD, longitude, latitude, zone, 
+                 type = c("rise", "transit", "set")){
     planet <- match.arg(planet)             
     type <- match.arg(type)
     switch(planet, mercury = {
@@ -111,8 +111,8 @@ function(planet = c("mercury", "venus", "mars",
     }
     )
     RiseTransitSetTime =CAARiseTransitSet_Calculate(JD, 
-    Alpha1, Delta1, Alpha2, Delta2, Alpha3, Delta3, 
-    longitude, latitude, -0.5667);
+        Alpha1, Delta1, Alpha2, Delta2, Alpha3, Delta3, 
+        longitude, latitude, -0.5667);
     
     switch(type, 
     rise = {

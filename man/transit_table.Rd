@@ -29,7 +29,7 @@ data frame
 
 }
 \author{
-Jinlong Zhang
+Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \note{
 

@@ -23,20 +23,20 @@ Logical, whether the legend will be added to the figure
 
 }
 \value{
-figure
+figure 
 }
 \references{
 
 }
 \author{
-Jinlong Zhang
+Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \note{
 
 }
 
 \seealso{
-transit_table
+\code{\link{plot_rise_set}}
 }
 \examples{
 JD = CAADate_DateToJD(Year = 2016, Month =1, Day =1, bGregorianCalendar=TRUE)

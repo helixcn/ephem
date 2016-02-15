@@ -8,10 +8,10 @@ function(dat.table, legend = TRUE){
     }
     par(las = 2)
     plot(y = -(1:length(dat.table[,2])), x = -dat.table[,2], type = "n", 
-         axes = FALSE, xlim = c(-1, 0), ylim = c(-nrow(dat.table), 0), 
-          xlab = "Hour", ylab = "Date")
+        axes = FALSE, xlim = c(-1, 0), ylim = c(-nrow(dat.table), 0), 
+        xlab = "Hour", ylab = "Date")
           
-           axis(1, at = -seq(0, 24, by = 4)/24, labels = paste(seq(0, 24, by = 4), "h") )
+    axis(1, at = -seq(0, 24, by = 4)/24, labels = paste(seq(0, 24, by = 4), "h") )
     abline(h = -c(which(dat.table[, 12] ==1),which(dat.table[, 12] ==10),which(dat.table[, 12] ==20)), col = "grey")
     axis(1, at = -seq(0, 24, by = 2)/24, labels = paste(seq(0, 24, by = 2), "h") )
     abline(v = -seq(0, 24, by = 1)/24, col = "grey")
@@ -19,7 +19,7 @@ function(dat.table, legend = TRUE){
     date.lable <- paste(date.lable0[,2], date.lable0[,3] , sep = "-")
     axis(2, at = -which(dat.table[, 12] ==1), labels = date.lable)
     title(paste("Time of Transits from ",paste(dat.table[1,10:12], collapse = "-"),
-    "to", paste(dat.table[nrow(dat.table),][10:12], collapse = "-")))
+          "to", paste(dat.table[nrow(dat.table),][10:12], collapse = "-")))
     polygon(x = -c(dat.table$Sun - 1/48, rev(dat.table$Sun + 1/48)), y = -c(1:length(dat.table$Sun), rev(1:length(dat.table$Sun))), density = 20, col = "grey")  
           
           
@@ -38,7 +38,7 @@ function(dat.table, legend = TRUE){
     box()
     if(legend){
         planet.label <- c("Mercury", "Venus", "Mars", "Jupiter", "Saturn",
-         "Uranus", "Neptune", "Sun")
+                          "Uranus", "Neptune", "Sun")
         legend("bottomright", legend = planet.label, lty = 1, col = 1:9)
     }
 }

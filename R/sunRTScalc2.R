@@ -1,7 +1,6 @@
 sunRTScalc2 <-
-function(JD, longitude = 0, latitude = 0,  zone = 0, 
-                       bGregorianCalendar = TRUE, 
-                       type = c("rise", "transit", "set")){
+function(JD, longitude, latitude,  zone, 
+         type = c("rise", "transit", "set")){
     type <- match.arg(type)
     
     SunDetails1 = CAAElliptical_Calculate_Sun(JD - 1)
@@ -17,8 +16,8 @@ function(JD, longitude = 0, latitude = 0,  zone = 0,
     Delta3 = SunDetails3$ApparentGeocentricDeclination;
     
     RiseTransitSetTime =CAARiseTransitSet_Calculate(JD, 
-    Alpha1, Delta1, Alpha2, Delta2, Alpha3, Delta3, 
-    longitude, latitude, -0.8333);
+        Alpha1, Delta1, Alpha2, Delta2, Alpha3, Delta3, 
+        longitude, latitude, -0.8333);
     
     switch( type, 
     rise = {
@@ -34,6 +33,5 @@ function(JD, longitude = 0, latitude = 0,  zone = 0,
     lclJD = rtsJD - (zone/24.00); 
     
     names(lclJD) <- paste("Sun", type,  sep = " ")
-    class(lclJD) <-"RTS"
     return(lclJD)
 }

@@ -19,14 +19,17 @@ Starting time to compute, in Julian Day
 Number of days
 }
   \item{longitude}{
-longitude of the location
-}
+Longitude in decimal degree
+} 
+
   \item{latitude}{
-latitude of the location
-}
+Latitude in decimal degree
+} 
+
   \item{zone}{
-time zone of the location
+Time Zone, Eastern Negative, Western Positive 
 }
+
   \item{legend}{
 Whether the legend shall be applied
 }
@@ -44,7 +47,7 @@ Figure
 %% ~put references to the literature/web site here ~
 }
 \author{
-Jinlong
+Jinlong \email{jinlongzhang01@gmail.com}
 }
 \note{
 %%  ~~further notes~~
@@ -52,15 +55,16 @@ Jinlong
 
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+ \code{\link{plot_transit_table}}
 }
 \examples{
 
 JD = CAADate_DateToJD(Year = 2016, Month =1, Day =1, bGregorianCalendar=TRUE)
-sss <- plot_rise_set(JD, days = 365,longitude = -121.468773, latitude =  31.228328,  zone = -8) 
+plot_rise_set(JD, days = 365,longitude = -121.468773, latitude = 31.228328,  zone = -8) 
+plot_rise_set(JD, days = 365,longitude = -116, latitude = 40,  zone = -8) 
+plot_rise_set(JD, days = 365,longitude = -127, latitude = 45,  zone = -8) 
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
+
 \keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd2 }

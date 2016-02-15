@@ -8,16 +8,25 @@ Track of venus during sunset for a given period
 Track of venus during sunset for a given period
 }
 \usage{
-venus_sunset(JD, days = 365, lable_interval = 10)
+venus_sunset(JD, longitude, latitude, days = 365, label_interval = 10)
 }
 \arguments{
   \item{JD}{
 The starting time of the track in Julian Date 
 }
+
+  \item{longitude}{
+Longitude in decimal degree
+} 
+
+  \item{latitude}{
+Latitude in decimal degree
+} 
+
   \item{days}{
 Number of days 
 }
-  \item{lable_interval}{
+  \item{label_interval}{
 Intervals in days
 }
 }
@@ -31,7 +40,7 @@ Figure
 
 }
 \author{
-Jinlong Zhang
+Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 
 \seealso{
@@ -39,7 +48,8 @@ Jinlong Zhang
 }
 \examples{
 JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-venus_sunset(JD, lable_interval = 20 )
+venus_sunset(JD, longitude = -127, latitude = 45, 
+             days = 365, label_interval = 20 )
 }
 
 \keyword{ Venus }

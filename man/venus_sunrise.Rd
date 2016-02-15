@@ -8,17 +8,26 @@ Track of venus during sunrise for a given period
 Track of venus during sunrise for a given period
 }
 \usage{
-venus_sunrise(JD, days = 365, lable_interval = 10)
+venus_sunrise(JD, longitude, latitude, days = 365, label_interval = 10)
 }
 
 \arguments{
   \item{JD}{
 The starting time for computation in Julian Date
 }
+
+\item{longitude}{
+Longitude in decimal degree
+} 
+
+\item{latitude}{
+Latitude in decimal degree
+} 
+
   \item{days}{
 Days the computation will last.
 }
-  \item{lable_interval}{
+  \item{label_interval}{
 Intervals the labels to be added. 
 }
 }
@@ -32,7 +41,7 @@ Figure
 
 }
 \author{
-Jinlong Zhang
+Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \note{
 
@@ -43,7 +52,8 @@ Jinlong Zhang
 }
 \examples{
 JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-venus_sunrise(JD, lable_interval = 20)
+venus_sunrise(JD, longitude = -116.5, latitude = 39.9, days = 300,
+                 label_interval = 10)
 }
 
 \keyword{ venus }

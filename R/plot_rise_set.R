@@ -1,36 +1,36 @@
 plot_rise_set <-
-function(JD, days, longitude, latitude,  zone, legend = TRUE, ...){
+function(JD, days, longitude, latitude, zone, legend = TRUE, ...){
     
     rise_table <-
-    function(start.JD, days , longitude , latitude ,  zone ) { 
+    function(start.JD, days, longitude, latitude, zone) { 
     
         JD.dat <- seq(start.JD, start.JD+days+1, by = 1)  
         dat.table <- data.frame(JD.dat)                   
         
         for(i in 1:days){ 
         
-        temp <- planetRTScalc2(planet = "mercury", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise") - dat.table[i,1]   
+        temp <- planetRTScalc2(planet = "mercury", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone,  type = "rise") - dat.table[i,1]   
         dat.table[i,2] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
                    
-        temp <- planetRTScalc2(planet = "venus", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise")  - dat.table[i,1]
+        temp <- planetRTScalc2(planet = "venus", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, type = "rise")  - dat.table[i,1]
         dat.table[i,3] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
         
-        temp <- planetRTScalc2(planet = "mars",  JD.dat[i],longitude = longitude, latitude =  latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise")  - dat.table[i,1]
+        temp <- planetRTScalc2(planet = "mars",  JD.dat[i],longitude = longitude, latitude =  latitude,  zone = zone, type = "rise")  - dat.table[i,1]
         dat.table[i,4] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
         
-        temp <- planetRTScalc2(planet = "jupiter", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise")  - dat.table[i,1]
+        temp <- planetRTScalc2(planet = "jupiter", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, type = "rise")  - dat.table[i,1]
         dat.table[i,5] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
         
-        temp <- planetRTScalc2(planet = "saturn",  JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise")  - dat.table[i,1]
+        temp <- planetRTScalc2(planet = "saturn",  JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, type = "rise")  - dat.table[i,1]
         dat.table[i,6] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
         
-        temp <- planetRTScalc2(planet = "uranus",  JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise")  - dat.table[i,1]
+        temp <- planetRTScalc2(planet = "uranus",  JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, type = "rise")  - dat.table[i,1]
         dat.table[i,7] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
         
-        temp <- planetRTScalc2(planet = "neptune", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise")  - dat.table[i,1]
+        temp <- planetRTScalc2(planet = "neptune", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone,  type = "rise")  - dat.table[i,1]
         dat.table[i,8] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
         
-        temp <- sunRTScalc2 (JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "rise")  - dat.table[i,1] 
+        temp <- sunRTScalc2 (JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone,  type = "rise")  - dat.table[i,1] 
         dat.table[i,9] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
         
         res.date <- Julian2Date(dat.table[i,1])   
@@ -47,33 +47,33 @@ function(JD, days, longitude, latitude,  zone, legend = TRUE, ...){
     
     
     set_table <-
-    function(start.JD, days , longitude , latitude ,  zone) { 
+    function(start.JD, days, longitude, latitude, zone) { 
         JD.dat <- seq(start.JD, start.JD+days+1, by = 1)
         dat.table <- data.frame(JD.dat)
         
         for(i in 1:days){
-            temp <- planetRTScalc2(planet = "mercury", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set") - dat.table[i,1]
+            temp <- planetRTScalc2(planet = "mercury", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone,  type = "set") - dat.table[i,1]
             dat.table[i,2] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
-            temp <- planetRTScalc2(planet = "venus", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set")  - dat.table[i,1]
+            temp <- planetRTScalc2(planet = "venus", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, type = "set")  - dat.table[i,1]
             dat.table[i,3] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
-            temp <- planetRTScalc2(planet = "mars",  JD.dat[i],longitude = longitude, latitude =  latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set")  - dat.table[i,1]
+            temp <- planetRTScalc2(planet = "mars",  JD.dat[i],longitude = longitude, latitude =  latitude,  zone = zone,  type = "set")  - dat.table[i,1]
             dat.table[i,4] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
-            temp <- planetRTScalc2(planet = "jupiter", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set")  - dat.table[i,1]
+            temp <- planetRTScalc2(planet = "jupiter", JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, type = "set")  - dat.table[i,1]
             dat.table[i,5] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
-            temp <- planetRTScalc2(planet = "saturn",  JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set")  - dat.table[i,1]
+            temp <- planetRTScalc2(planet = "saturn",  JD.dat[i], longitude = longitude, latitude = latitude,  zone = zone,  type = "set")  - dat.table[i,1]
             dat.table[i,6] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
-            temp <- planetRTScalc2(planet = "uranus",  JD.dat[i],longitude = longitude, latitude = latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set")  - dat.table[i,1]
+            temp <- planetRTScalc2(planet = "uranus",  JD.dat[i],longitude = longitude, latitude = latitude,  zone = zone,  type = "set")  - dat.table[i,1]
             dat.table[i,7] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
-            temp <- planetRTScalc2(planet = "neptune", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set")  - dat.table[i,1]
+            temp <- planetRTScalc2(planet = "neptune", JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, type = "set")  - dat.table[i,1]
             dat.table[i,8] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
-            temp <- sunRTScalc2 (JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, bGregorianCalendar = TRUE, type = "set")  - dat.table[i,1] 
+            temp <- sunRTScalc2 (JD.dat[i], longitude = longitude, latitude =  latitude,  zone = zone, type = "set")  - dat.table[i,1] 
             dat.table[i,9] <- ifelse(ifelse(temp < 0, temp + 1, temp)>1, ifelse(temp < 0, temp + 1, temp) - 1, ifelse(temp < 0, temp + 1, temp))
             
             res.date <- Julian2Date(dat.table[i,1])
@@ -87,8 +87,8 @@ function(JD, days, longitude, latitude,  zone, legend = TRUE, ...){
         return(dat.table)
     }
     
-    rtable <- rise_table(start.JD = JD, days = days , longitude = longitude , latitude = latitude ,  zone = zone)
-    stable <- set_table(start.JD = JD, days = days , longitude = longitude , latitude = latitude ,  zone = zone)
+    rtable <- rise_table(start.JD = JD, days = days, longitude = longitude, latitude = latitude,  zone = zone)
+    stable <- set_table(start.JD = JD, days = days, longitude = longitude, latitude = latitude,  zone = zone)
 
         whichint <- function(x, limit = 1) {
             ind1 <- 1:(length(x) - 1)
