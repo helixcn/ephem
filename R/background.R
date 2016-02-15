@@ -2,6 +2,7 @@ background <-
 function(xlim = c(24, 0), ylim = c(-50, 50), mag = 3, cex = 1, lab = FALSE, grid = FALSE,...)
 {
    data(constellation)
+   constellation <- constellation
    par(xaxs = "i", yaxs = "i")
    plot(constellation$RA, constellation$DEC, cex =  log(constellation$MAG), col = "grey", xlab = "Right Ascension (h)", ylab = expression(paste("Declination", degree)), xlim = xlim, ylim = ylim, axes = FALSE, type = "n")
    
