@@ -8,7 +8,7 @@ track of mercury during sunrise for a given period
 track of mercury during sunrise for a given period
 }
 \usage{
-mercury_sunrise(JD, longitude, latitude, days = 365,
+mercury_sunrise(JD, latitude, days = 365,
                  label_interval = 10)
 }
 
@@ -16,10 +16,6 @@ mercury_sunrise(JD, longitude, latitude, days = 365,
   \item{JD}{
 Julian Date of the starting time
 }
-
-  \item{longitude}{
-Longitude in decimal degree
-} 
 
   \item{latitude}{
 Latitude in decimal degree
@@ -53,7 +49,7 @@ Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \examples{
 JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-mercury_sunrise(JD, longitude = -116.5, latitude = 39.9, days = 300,
+mercury_sunrise(JD, latitude = 39.9, days = 300,
                  label_interval = 10)
 }
 

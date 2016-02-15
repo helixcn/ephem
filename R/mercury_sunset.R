@@ -1,5 +1,5 @@
 mercury_sunset <-
-function(JD, longitude, latitude, 
+function(JD, latitude, 
           days = 365, label_interval = 10){
     dat.H <- c()
     dat.Z <- c()
@@ -8,7 +8,7 @@ function(JD, longitude, latitude,
     Day <- c()
     i = 1
     for(ttt in JD:(JD+days)){
-        rr <- mercury_Horizontal_at_SunRT(JD = ttt, longitude, latitude, zone = 0, type = "set")
+        rr <- mercury_Horizontal_at_SunRT(JD = ttt, longitude = 0, latitude, zone = 0, type = "set")
         dat.H[i] <- rr[[1]]
         dat.Z[i] <- rr[[2]]
         rs <- Julian2Date(ttt) 

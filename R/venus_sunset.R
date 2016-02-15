@@ -1,5 +1,5 @@
 venus_sunset <-
-function(JD, longitude, latitude, days = 365, label_interval = 10){
+function(JD, latitude, days = 365, label_interval = 10){
     dat.H <- c()
     dat.Z <- c()
     Year <- c()
@@ -7,7 +7,7 @@ function(JD, longitude, latitude, days = 365, label_interval = 10){
     Day <- c()
     i = 1
     for(time in JD:(JD+days)){
-        rr <- venus_Horizontal_at_SunRT(JD = time, longitude, latitude, zone = 0, type = "set")
+        rr <- venus_Horizontal_at_SunRT(JD = time, longitude = 0, latitude, zone = 0, type = "set")
         dat.H[i] <- rr[[1]]
         dat.Z[i] <- rr[[2]]
         rs <- Julian2Date(time) 

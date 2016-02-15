@@ -1,5 +1,5 @@
 mercury_sunrise <-
-function(JD, longitude, latitude, days = 365, label_interval = 10){
+function(JD, latitude, days = 365, label_interval = 10){
     dat.H <- c()
     dat.Z <- c()
     Year <- c()
@@ -7,7 +7,7 @@ function(JD, longitude, latitude, days = 365, label_interval = 10){
     Day <- c()
     i = 1
     for(ttt in JD:(JD+days)){
-        rr <- mercury_Horizontal_at_SunRT(JD = ttt, longitude = longitude, latitude = latitude, 
+        rr <- mercury_Horizontal_at_SunRT(JD = ttt, longitude = 0, latitude = latitude, 
                                           zone = 0, type = "rise")
         dat.H[i] <- rr[[1]]
         dat.Z[i] <- rr[[2]]
