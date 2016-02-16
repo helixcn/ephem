@@ -43,16 +43,14 @@ Figure
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \note{
-
+The azimuth is measured westward from the south. 
 }
 
 \seealso{
 \code{\link{mercury_sunrise}}
 }
 \examples{
-JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-mercury_sunset(JD, latitude = 10,  
-      days = 365, label_interval = 20 )
+mercury_sunset(CAADate_DateToJD(2016, 1, 1, TRUE), latitude = 10, days = 365, label_interval = 20 )
 
 }
 

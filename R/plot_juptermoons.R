@@ -89,4 +89,5 @@ function(JD, days = 30, increment = 1/24, legend = TRUE)
         lab <- c("Io", "Europa", "Ganymede", "Callisto")
         legend("bottomright", legend = lab, lty = 1, col = c("black", "green", "red", "blue"))
     }
+    return(res)
 }

@@ -146,4 +146,6 @@ function(JD, days, longitude, latitude, zone, legend = TRUE, ...){
          "Uranus", "Neptune", "Sun")
         legend("bottomright", legend = planet.label, lty = 1, col = col)
     }
+    return(list(rise = rtable, set = stable))
+    
 }

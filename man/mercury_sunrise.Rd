@@ -22,7 +22,7 @@ Latitude in decimal degree
 } 
 
   \item{days}{
-Number of days
+Number of days to compute
 }
   \item{label_interval}{
 days between each label on the apparent track
@@ -41,16 +41,14 @@ Figure
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \note{
-
+The azimuth is measured westward from the south. 
 }
 
 \seealso{
 \code{\link{mercury_sunset}}
 }
 \examples{
-JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-mercury_sunrise(JD, latitude = 39.9, days = 300,
-                 label_interval = 10)
+mercury_sunrise( CAADate_DateToJD(2016, 1, 1, TRUE) , latitude = 39.9, days = 300, label_interval = 10)
 }
 
 \keyword{ mercury }

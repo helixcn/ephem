@@ -41,16 +41,14 @@ Figure
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 \note{
-
+The azimuth is measured westward from the south. 
 }
 
 \seealso{
    \code{\link{venus_sunset}}
 }
 \examples{
-JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-venus_sunrise(JD, latitude = 39.9, days = 300,
-                 label_interval = 10)
+venus_sunrise(CAADate_DateToJD(2016, 1, 1, TRUE), latitude = 39.9, days = 300, label_interval = 10)
 }
 
 \keyword{ venus }

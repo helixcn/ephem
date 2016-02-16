@@ -6,4 +6,5 @@ function(time, labels = TRUE, ...){
     if(labels){
        text(position[,1], position[,2]+ 5, labs, cex = 1.2)
     }
+    return(position)
 }

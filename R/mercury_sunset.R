@@ -28,5 +28,6 @@ function(JD, latitude,
     text(sel.tab$dat.H, sel.tab$dat.Z+2, paste(sel.tab$M, sel.tab$D, sep = "-"))
     title(paste("Azimuth and altitude of Mercury at sunset from ", 
          paste(paste(Year[1], Month[1], Day[1], sep = "-"), "to", 
-         paste(Year[i-1], Month[i-1], Day[i-1], sep  = "-"))) )
+         paste(Year[i-1], Month[i-1], Day[i-1], sep  = "-")), "\n(Lat:",latitude, ")") )
+    return(invisible(dat.table))
 }

@@ -20,17 +20,17 @@ Latitude in decimal degree
 } 
 
   \item{days}{
-Number of days 
+Number of days to compute
 }
   \item{label_interval}{
-Intervals in days
+Intervals for the labels in days
 }
 }
 \details{
 
 }
 \value{
-Figure
+Figure and the corresponding data frame. 
 }
 \references{
 
@@ -39,13 +39,15 @@ Figure
 Jinlong Zhang \email{jinlongzhang01@gmail.com}
 }
 
+\note{
+The azimuth is measured westward from the south. 
+}
+
 \seealso{
 \code{\link{venus_sunrise}}
 }
 \examples{
-JD <- CAADate_DateToJD(2016, 1, 1, TRUE)
-venus_sunset(JD, latitude = 45, 
-             days = 365, label_interval = 20 )
+venus_sunset(CAADate_DateToJD(2012, 1, 1, TRUE), latitude = 45, days = 365, label_interval = 20 )
 }
 
 \keyword{ Venus }
