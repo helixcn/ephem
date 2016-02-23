@@ -8,7 +8,7 @@ Track of Jupiter's Galilean Moons
 Track of Jupiter's Galilean Moons
 }
 \usage{
-plot_juptermoons(JD, days = 30, increment = 1/24, legend = TRUE)
+plot_juptermoons(JD, days = 30, increment = 1/1000, legend = TRUE)
 }
 
 \arguments{

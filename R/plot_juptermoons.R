@@ -1,11 +1,16 @@
 plot_juptermoons <-
-function(JD, days = 30, increment = 1/24, legend = TRUE)
+function(JD, days = 30, increment = 1/1000, legend = TRUE)
 {
     JD.all <- rep(NA, floor(days/increment))
     satellite.1 <- rep(NA, floor(days/increment))
     satellite.2 <- rep(NA, floor(days/increment))
     satellite.3 <- rep(NA, floor(days/increment))
     satellite.4 <- rep(NA, floor(days/increment))
+    
+    satellite.z.1 <- rep(NA, floor(days/increment))
+    satellite.z.2 <- rep(NA, floor(days/increment))
+    satellite.z.3 <- rep(NA, floor(days/increment))
+    satellite.z.4 <- rep(NA, floor(days/increment))
     
     satellite.1.eclipse <- rep(NA, floor(days/increment))
     satellite.2.eclipse <- rep(NA, floor(days/increment))
@@ -27,7 +32,11 @@ function(JD, days = 30, increment = 1/24, legend = TRUE)
         satellite.2[i] <- temp$ApparentRectangularCoordinates$Satellite2.ApparentRectangularCoordinates.X
         satellite.3[i] <- temp$ApparentRectangularCoordinates$Satellite3.ApparentRectangularCoordinates.X
         satellite.4[i] <- temp$ApparentRectangularCoordinates$Satellite4.ApparentRectangularCoordinates.X
-        
+        satellite.z.1[i] <- temp$ApparentRectangularCoordinates$Satellite1.ApparentRectangularCoordinates.Z
+        satellite.z.2[i] <- temp$ApparentRectangularCoordinates$Satellite2.ApparentRectangularCoordinates.Z
+        satellite.z.3[i] <- temp$ApparentRectangularCoordinates$Satellite3.ApparentRectangularCoordinates.Z
+        satellite.z.4[i] <- temp$ApparentRectangularCoordinates$Satellite4.ApparentRectangularCoordinates.Z
+             
         satellite.1.eclipse[i] <- temp$Eclipse$Satellite1.bInShadowTransit
         satellite.2.eclipse[i] <- temp$Eclipse$Satellite2.bInShadowTransit
         satellite.3.eclipse[i] <- temp$Eclipse$Satellite3.bInShadowTransit
@@ -42,8 +51,13 @@ function(JD, days = 30, increment = 1/24, legend = TRUE)
         date.s[i] <- res.date$s     
     }
     
+    satellite.1[satellite.z.1 < 0 & (satellite.1 > -0.5 & satellite.1 < 0.5)] <- NA
+    satellite.2[satellite.z.2 < 0 & (satellite.2 > -0.5 & satellite.2 < 0.5)] <- NA
+    satellite.3[satellite.z.3 < 0 & (satellite.3 > -0.5 & satellite.3 < 0.5)] <- NA
+    satellite.4[satellite.z.4 < 0 & (satellite.4 > -0.5 & satellite.4 < 0.5)] <- NA
     res <- data.frame(JD.all,satellite.1,satellite.2,satellite.3,satellite.4,
-           satellite.1.eclipse,satellite.2.eclipse,satellite.3.eclipse,satellite.4.eclipse,
+           satellite.1.eclipse,satellite.z.1,satellite.2.eclipse,satellite.z.2,
+           satellite.3.eclipse,satellite.z.3,satellite.4.eclipse,satellite.z.4,
            date.Y, date.M, date.D, date.h, date.m, date.s)
     
     par(las = 2, xaxs = "i", yaxs = "i", mar = c(5, 7, 3,2)) 
@@ -74,20 +88,19 @@ function(JD, days = 30, increment = 1/24, legend = TRUE)
         }
     }
     
-    lines(JD.all ~ (satellite.1), data = res, col = "black")
-    lines(JD.all ~ (satellite.2), data = res, col = "green")
-    lines(JD.all ~ (satellite.3), data = res, col = "red")
-    lines(JD.all ~ (satellite.4), data = res, col = "blue")
-    
     axis(2, at = jddays, labels = date.label) 
     axis(1)
     box()
     polygon(x = c(rep(-.5, nrow(res)), rep(.5, nrow(res))), y = c(JD.all, rev(JD.all)), col = "yellow")  
     
+    lines(JD.all ~ (satellite.1), data = res, col = "black")
+    lines(JD.all ~ (satellite.2), data = res, col = "green")
+    lines(JD.all ~ (satellite.3), data = res, col = "red")
+    lines(JD.all ~ (satellite.4), data = res, col = "blue")
     
     if(legend){
         lab <- c("Io", "Europa", "Ganymede", "Callisto")
         legend("bottomright", legend = lab, lty = 1, col = c("black", "green", "red", "blue"))
     }
-    return(res)
+    return(invisible(res))
 }
