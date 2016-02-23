@@ -51,10 +51,10 @@ function(JD, days = 30, increment = 1/1000, legend = TRUE)
         date.s[i] <- res.date$s     
     }
     
-    satellite.1[satellite.z.1 < 0 & (satellite.1 > -0.5 & satellite.1 < 0.5)] <- NA
-    satellite.2[satellite.z.2 < 0 & (satellite.2 > -0.5 & satellite.2 < 0.5)] <- NA
-    satellite.3[satellite.z.3 < 0 & (satellite.3 > -0.5 & satellite.3 < 0.5)] <- NA
-    satellite.4[satellite.z.4 < 0 & (satellite.4 > -0.5 & satellite.4 < 0.5)] <- NA
+    satellite.1[satellite.z.1 > 0 & (satellite.1 > -0.5 & satellite.1 < 0.5)] <- NA
+    satellite.2[satellite.z.2 > 0 & (satellite.2 > -0.5 & satellite.2 < 0.5)] <- NA
+    satellite.3[satellite.z.3 > 0 & (satellite.3 > -0.5 & satellite.3 < 0.5)] <- NA
+    satellite.4[satellite.z.4 > 0 & (satellite.4 > -0.5 & satellite.4 < 0.5)] <- NA
     res <- data.frame(JD.all,satellite.1,satellite.2,satellite.3,satellite.4,
            satellite.1.eclipse,satellite.z.1,satellite.2.eclipse,satellite.z.2,
            satellite.3.eclipse,satellite.z.3,satellite.4.eclipse,satellite.z.4,
