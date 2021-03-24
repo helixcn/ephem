@@ -11,7 +11,7 @@ Meanwhile, the R package devtools must also be installed.
 
 ## To install devtools: 
 ```R
-install
+install.packages("devtools")
 ```
 
 ## To install ephem and its dependencies
