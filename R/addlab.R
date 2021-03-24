@@ -1,2 +1,2 @@
 addlab <-
-function (x, ...) UseMethod("addlab")
+function(x, ...) UseMethod("addlab")
